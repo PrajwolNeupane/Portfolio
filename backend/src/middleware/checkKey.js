@@ -1,4 +1,5 @@
-import 'dotenv/config';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const checkKey = (req, res, next) => {
     const api_key = req.query.api_key;
