@@ -13,7 +13,6 @@ export default function SingleProject() {
             try {
                 const res = await axios.get(`/project/${id}?api_key=mero-54321-app`);
                 setData(res.data);
-                console.log(data);
             } catch (e) {
                 console.log(e);
             }

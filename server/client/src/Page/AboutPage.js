@@ -186,8 +186,6 @@ export default function AboutPage() {
             })
         }
 
-        console.log("X", xsmall);
-        console.log("S", small);
     }, [xsmall, small]);
 
 
