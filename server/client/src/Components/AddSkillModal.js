@@ -34,7 +34,7 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
 
   const uploadSkill = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/skill/?api_key=mero-54321-app", {
+      const res = await axios.post("/skill/?api_key=mero-54321-app", {
         name: nameRef.current.value,
         type:typeRef.current.value,
         image: img,

@@ -36,7 +36,7 @@ export default function AddProjectModal({ open, setOpen, setProjectUpload }) {
 
   const uploadProject = async () => {
     try {
-      const res = await axios.post("http://localhost:8000/project/?api_key=mero-54321-app", {
+      const res = await axios.post("/project/?api_key=mero-54321-app", {
         name: nameRef.current.value,
         description: descriptionRef.current.value,
         link: linkRef.current.value,
