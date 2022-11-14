@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/project/?api_key=mero-54321-app");
+        const res = await axios.get("/project/?api_key=mero-54321-app");
         dispatch(addProject(res.data));
       } catch (e) {
         console.log(e);
