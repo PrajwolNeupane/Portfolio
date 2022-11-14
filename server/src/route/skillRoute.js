@@ -23,7 +23,7 @@ router.get("/", checkKey, async (req, res) => {
     try {
         let data = await Skill.find().select("-__v");
         for (let d of data) {
-            d.image = 'http://localhost:8000/uploads/' + d.image;
+            d.image = '/uploads/' + d.image;
         }
         res.send(data);
     } catch (e) {
