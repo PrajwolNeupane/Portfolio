@@ -19,6 +19,11 @@ app.use("/skill",skillRoute);
 app.use("/message",messageRoute);
 app.use("/user",userRoute);
 
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static("client/build"));
+    
+}
+
 app.listen(process.env.PORT || 8000,async () => {
 
     console.log("Server Started");
