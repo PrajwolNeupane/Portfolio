@@ -176,7 +176,7 @@ export default function AboutPage() {
                 scale: "0.9"
             }, {
                 scale: "1",
-                width: "89%", duration: 1.5,
+                width: "310px", duration: 1.5,
                 delay: .2,
                 padding: "20px 15px",
                 ease: Power4.easeOut,
@@ -197,10 +197,10 @@ export default function AboutPage() {
                 <Typography variant='h4' sx={{ fontSize: "13px", color: "primary.main", letterSpacing: "3px", position: "absolute", left: "5%", top: "1160px", transform: "rotate(-90deg)", opacity: 0, display: { sm: "block", xs: "none" } }} ref={aboutRef}>ABOUT //</Typography>
                 <Box sx={{ backgroundColor: "#e3e3e3", width: "20px", height: "60px", position: "absolute", left: "7.1%", top: "1160px", zIndex: "-1", opacity: "0", display: { lg: "block", sm: "none" } }} ref={boxRef}></Box>
                 <img src={photo} ref={image} className="about-image" />
-                <Box sx={{ width: { lg: "100%", md: "25%", sm: "20%" }, height: { lg: "400px", md: "400px", sm: "300px" }, backgroundColor: "#e3e3e3", position: { sm: "absolute", xs: "relative" }, top: { sm: "860px", xs: "0px" }, left: { sm: "50%", xs: "0px" } }} ref={container} >
+                <Box sx={{ width: { lg: "100%", md: "25%", sm: "20%" }, height: { lg: "400px", md: "400px", sm: "400px" }, backgroundColor: "#e3e3e3", position: { sm: "absolute", xs: "relative" }, top: { sm: "860px", xs: "0px" }, left: { sm: "50%", xs: "0px" } }} ref={container} >
                     <Stack ref={content} sx={{ height: "100%", gap: { lg: "20px", md: "10px", sm: "5px", xs: "5px" } }}>
                         <Typography variant='h3' sx={{ fontSize: { md: "30px", sm: "20px", xs: "16px" }, textAlign: "center", color: "primary.main" }} >ABOUT ME</Typography>
-                        <Box sx={{ width: "135px", height: "3px", position: "absolute", top: "25%", zIndex: "-1", left: "19.5%", display: { lg: "block", md: "none" } }} className="line"></Box>
+                        <Box sx={{ width: "135px", height: "3px", position: "absolute", top: "25%", zIndex: "-1", left: "19.5%", display: { lg: "block", md: "none",sm:"none",xs:"none" } }} className="line"></Box>
                         <Typography variant='h5' sx={{ color: "primary.main", fontSize: { md: "16px", sm: "14px", xs: "12px" } }} >Hi, I am Prajwol Neupane. I have been coding since 2020. Throughout my coding journey, I learn Java, Javascript, and different frameworks which you can see in the Skill Section of this website. I love creating websites and apps, you can see projects I have made in Project Section. Besides creating sites and apps, I found solving coding questions quite interesting.</Typography>
                         <Stack sx={{ flexDirection: "row", gap: "1%" }}>
                             < EmailIcon sx={{ fontSize: { md: "22px", sm: "18px", xs: "14px" }, color: "primary.main" }} />

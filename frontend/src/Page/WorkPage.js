@@ -96,7 +96,7 @@ export default function WorkPage() {
             <Typography variant='h3' sx={{ fontSize: "30px" }} ref={aboutRef} className="fade">PROJECT</Typography>
             <div className='project-div'>
                 {
-                    project.map((curr, indx) => (
+                    project?.map((curr, indx) => (
                         <div className='project-container' key={indx} ref={addSlideUp} onClick={() => {
                             Navigate(`/${curr?._id}`);
                         }}>

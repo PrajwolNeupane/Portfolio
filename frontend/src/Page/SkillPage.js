@@ -1,4 +1,4 @@
-import { Stack, Typography, Box, Avatar } from '@mui/material'
+import { Stack, Typography, Box, Avatar, Tooltip, Fade } from '@mui/material';
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger, Power4 } from 'gsap/all';
@@ -74,9 +74,9 @@ export default function SkillPage() {
 
 
     return (
-        <Stack sx={{ width: { md: "70%", sm: "80%" }, padding: { md: "50px 15%", sm: "50px 10%" ,xs:"50px 10%"}, backgroundColor: "primary.main", minHeight: "400px" }} id="skill">
-            <Typography variant='h4' sx={{ fontSize: "13px", letterSpacing: "3px", position: "absolute", left: "5%", top: "1760px", transform: "rotate(-90deg)", zIndex: 2 ,display:{md:"block",sm:"none",xs:"none"}}} ref={aboutRef}>SKILLS //</Typography>
-            <Box sx={{ backgroundColor: "primary.light", width: "20px", height: "60px", position: "absolute", left: "7.1%", top: "1760px", zIndex: "1", opacity: "0" ,display:{md:"block",sm:"none",xs:"none"}}} ref={boxRef}></Box>
+        <Stack sx={{ width: { md: "70%", sm: "80%" }, padding: { md: "50px 15%", sm: "50px 10%", xs: "50px 10%" }, backgroundColor: "primary.main", minHeight: "400px" }} id="skill">
+            <Typography variant='h4' sx={{ fontSize: "13px", letterSpacing: "3px", position: "absolute", left: "5%", top: "1760px", transform: "rotate(-90deg)", zIndex: 2, display: { md: "block", sm: "none", xs: "none" } }} ref={aboutRef}>SKILLS //</Typography>
+            <Box sx={{ backgroundColor: "primary.light", width: "20px", height: "60px", position: "absolute", left: "7.1%", top: "1760px", zIndex: "1", opacity: "0", display: { md: "block", sm: "none", xs: "none" } }} ref={boxRef}></Box>
             <Typography variant='h3' sx={{
                 fontSize: "30px", color: "white", "&:hover": {
                     transform: "scale(1.1)"
@@ -84,18 +84,24 @@ export default function SkillPage() {
             }} ref={addSlideUp}>SKILLS</Typography>
             <div className="skill-div">
                 {
-                    skill.map((curr, indx) => (
-                        <Stack sx={{ flexDirection: "row", alignItems: "center", gap: "10px" }} key={indx}>
-                            <Avatar src={curr?.image} sx={{ width: { sm: "50px", xs: "40px" }, height: { sm: "50px", xs: "40px" } }} ref={addSlideUp} />
-                            <Stack>
-                                <Typography variant='h4' sx={{ color: "white", fontSize: { md: "18px", sm: "16px", xs: "16px" } }} ref={addSlideUp}>
-                                    {curr?.name}
-                                </Typography>
-                                <Typography variant='h5' sx={{ color: "#e3e3e3", fontSize: { md: "16px", sm: "14px", xs: "12px" } }} ref={addSlideUp}>
-                                    {curr?.type}
-                                </Typography>
+                    skill?.map((curr, indx) => (
+                        <Tooltip TransitionComponent={Fade} title={<Typography sx={{fontSize:"13px"}}>{curr?.description}</Typography>} key={indx} enterDelay={1000} leaveDelay={200} placement="bottom-end" >
+                            <Stack sx={{
+                                flexDirection: "row", alignItems: "center", gap: "10px", padding: "10px", borderRadius: "10px", cursor: "pointer", transition: "1s", ":hover": {
+                                    backgroundColor: "primary.light"
+                                }
+                            }} >
+                                <Avatar src={curr?.image} sx={{ width: { sm: "50px", xs: "40px" }, height: { sm: "50px", xs: "40px" } }} ref={addSlideUp} />
+                                <Stack>
+                                    <Typography variant='h4' sx={{ color: "white", fontSize: { md: "18px", sm: "16px", xs: "16px" } }} ref={addSlideUp}>
+                                        {curr?.name}
+                                    </Typography>
+                                    <Typography variant='h5' sx={{ color: "#e3e3e3", fontSize: { md: "16px", sm: "14px", xs: "12px" } }} ref={addSlideUp}>
+                                        {curr?.type}
+                                    </Typography>
+                                </Stack>
                             </Stack>
-                        </Stack>
+                        </Tooltip>
                     ))
                 }
             </div>
