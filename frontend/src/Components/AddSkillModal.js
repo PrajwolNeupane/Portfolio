@@ -30,13 +30,15 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
 
   const nameRef = useRef();
   const typeRef = useRef();
+  const descriptionRef = useRef();
 
   const uploadSkill = async () => {
     try {
       const res = await axios.post("http://localhost:8000/skill/?api_key=mero-54321-app", {
         name: nameRef.current.value,
         type:typeRef.current.value,
-        image: img
+        image: img,
+        description:descriptionRef.current.value
       }, {
         headers: {
           "Content-Type": "multipart/form-data"
@@ -63,6 +65,9 @@ export default function AddSkillModal({ open, setOpen, setSkillUpload }) {
         </Box>
         <Box sx={{ backgroundColor: "secondary.light", borderRadius: "5px", padding: "2px 5px" }}>
           <InputBase placeholder="Type" type={"text"} fullWidth inputRef={typeRef} />
+        </Box>
+        <Box sx={{ backgroundColor: "secondary.light", borderRadius: "5px", padding: "2px 5px" }}>
+          <InputBase placeholder="Description" type={"text"} fullWidth inputRef={descriptionRef} />
         </Box>
         <input type={"file"} onChange={selectImage} />
         <Button sx={{
