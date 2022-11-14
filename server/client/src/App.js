@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/skill/?api_key=mero-54321-app");
+        const res = await axios.get("/skill/?api_key=mero-54321-app");
         dispatch(addSkill(res.data));
       } catch (e) {
         console.log(e);
@@ -56,7 +56,7 @@ function App() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/message/?api_key=mero-54321-app");
+        const res = await axios.get("/message/?api_key=mero-54321-app");
         dispatch(addMessage(res.data));
       } catch (e) {
         console.log(e);

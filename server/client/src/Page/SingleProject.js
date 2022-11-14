@@ -11,7 +11,7 @@ export default function SingleProject() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const res = await axios.get(`http://localhost:8000/project/${id}?api_key=mero-54321-app`);
+                const res = await axios.get(`/project/${id}?api_key=mero-54321-app`);
                 setData(res.data);
                 console.log(data);
             } catch (e) {

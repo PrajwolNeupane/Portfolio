@@ -24,7 +24,7 @@ router.get("/", checkKey, async (req, res) => {
     try {
         const data = await Project.find().select('-__v');
         for (let d of data) {
-            d.image = 'http://localhost:8000/uploads/' + d.image;
+            d.image = '/uploads/' + d.image;
         }
         res.send(data);
     } catch (e) {
@@ -59,7 +59,7 @@ router.get("/:id", checkKey, async (req, res) => {
     if (id) {
         try {
             const data = await Project.findById(id).select("-__v");
-            data.image = 'http://localhost:8000/uploads/' + data.image;
+            data.image = '/uploads/' + data.image;
             res.send(data);
         } catch (e) {
             res.send({ message: 'Cannot find Project' });
