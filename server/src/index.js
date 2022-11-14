@@ -5,6 +5,7 @@ import skillRoute from './route/skillRoute.js';
 import messageRoute from './route/messageRoute.js';
 import userRoute from './route/userRoute.js';
 import cors from 'cors';
+import path from 'path';
 
 const app = express();
 app.use(express.json());
@@ -14,17 +15,26 @@ app.use(cors({
 }));
 
 
-app.use("/project",projectRoute);
-app.use("/skill",skillRoute);
-app.use("/message",messageRoute);
-app.use("/user",userRoute);
+app.use("/project", projectRoute);
+app.use("/skill", skillRoute);
+app.use("/message", messageRoute);
+app.use("/user", userRoute);
 
-if(process.env.NODE_ENV === "production"){
+if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
-    
+
+    app.get("*", (req, res) => {
+
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+
+    })
+
+
+
+
 }
 
-app.listen(process.env.PORT || 8000,async () => {
+app.listen(process.env.PORT || 8000, async () => {
 
     console.log("Server Started");
     try {
