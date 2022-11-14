@@ -6,6 +6,9 @@ import messageRoute from './route/messageRoute.js';
 import userRoute from './route/userRoute.js';
 import cors from 'cors';
 import path from 'path';
+import * as url from 'url';
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const app = express();
 app.use(express.json());
